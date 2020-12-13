@@ -1,0 +1,21 @@
+.color-align {
+    color: mediumpurple;
+    text-align: center;
+}
+
+.color-red {
+    color: red;
+}
+
+.exit {
+    color: red;
+    text-align: right;
+}
+
+.color-mediumpurple {
+    color: mediumpurple;
+}
+
+.color-green {
+    color: darkgreen;
+}

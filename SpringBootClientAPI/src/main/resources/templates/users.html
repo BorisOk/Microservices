@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="ru-RU">
+<head>
+    <title>Users</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<form class="exit" action="/pd">
+    <input class="exit" type="submit" value="EXIT">
+</form>
+    <h3 class="color-green" th:text="${updateGood}"></h3>
+    <h3 class="color-green" th:text="${createGood}"></h3>
+    <h3 class="color-green" th:text="${deleteGood}"></h3>
+    <h1 class="color-mediumpurple">List of employees</h1>
+<hr>
+<ul th:each="user : ${users}">
+    <li th:text="'id(' + ${user.id} + ') ' + ${user.lastName} + ' ' + ${user.firstName} + ' '"></li>
+    <a class="color-red" th:href="'/pd/users/'+${user.id}">Email</a>
+</ul>
+<hr>
+<form class="color-align" method="post" action="/pd/users">
+    <input type="reset" value="RESET">
+    <label><textarea  name="firstName" placeholder="Введите имя"></textarea></label>
+    <label><textarea  name="lastName" placeholder="Введите фамилию"></textarea></label>
+    <label><textarea  name="email" placeholder="Введите email"></textarea></label>
+    <input type="submit" value="CREATE">
+</form>
+<hr>
+<form class="color-align" method="post" action="/pd/users/put">
+    <input type="reset" value="RESET">
+    <label><textarea  name="id" placeholder="Введите id сотрудника"></textarea></label>
+    <label><textarea  name="firstName" placeholder="Введите новое имя"></textarea></label>
+    <label><textarea  name="lastName" placeholder="Введите новую фамилию"></textarea></label>
+    <label><textarea  name="email" placeholder="Введите новый email"></textarea></label>
+    <input type="submit" value="UPDATE">
+</form>
+<hr>
+<form class="color-align" method="post" action="/pd/users/delete">
+    <input type="reset" value="RESET">
+    <label><textarea  name="id" placeholder="Введите id"></textarea></label>
+    <input type="submit" value="DELETE">
+</form>
+<hr>
+</body>
+</html>
